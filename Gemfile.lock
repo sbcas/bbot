@@ -2,12 +2,38 @@ GEM
   remote: https://rubygems.org/
   specs:
     cinch (2.1.0)
+    cinch-cooldown (1.1.5)
+      cinch (~> 2)
+      time-lord (~> 1.0, >= 1.0.1)
+    cinch-identify (1.6.0)
+      cinch (~> 2.0)
     cinch-quotes (0.0.4)
       cinch (~> 2.0)
+    cinch-weatherman (1.0.5)
+      cinch (~> 2)
+      cinch-cooldown (~> 1.1, >= 1.1.1)
+      time-lord (~> 1.0, >= 1.0.1)
+      weather-underground (~> 1.1, >= 1.1.1)
+    happymapper (0.4.1)
+      libxml-ruby (~> 2.0)
+    libxml-ruby (2.7.0)
+    mime-types (2.4.3)
+    netrc (0.8.0)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    temperature (1.2)
+    time-lord (1.0.1)
+    weather-underground (1.1.1)
+      happymapper
+      rest-client
+      temperature (>= 1.0.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   cinch
+  cinch-identify
   cinch-quotes
+  cinch-weatherman

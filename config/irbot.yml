@@ -1,0 +1,12 @@
+# [Required] Configuration settings
+nick: irbot
+user: irbot
+realname: The Honorable I.R. Botsford III
+server: irc.jaundies.com
+chans:
+  - '#ruby'
+  - '#molson'
+plugins:
+  - Weatherman
+  - Quotes
+  - Identify

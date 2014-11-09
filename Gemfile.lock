@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/scassiba/cinch-weatherman.git
+  revision: 1423f2e8bd52da8b125d5d64984781d6cb2d1327
+  specs:
+    cinch-weatherman (1.0.6)
+      cinch (~> 2)
+      cinch-cooldown (~> 1.1, >= 1.1.1)
+      time-lord (~> 1.0, >= 1.0.1)
+      weather-underground (~> 1.1, >= 1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -9,11 +19,6 @@ GEM
       cinch (~> 2.0)
     cinch-quotes (0.0.4)
       cinch (~> 2.0)
-    cinch-weatherman (1.0.5)
-      cinch (~> 2)
-      cinch-cooldown (~> 1.1, >= 1.1.1)
-      time-lord (~> 1.0, >= 1.0.1)
-      weather-underground (~> 1.1, >= 1.1.1)
     happymapper (0.4.1)
       libxml-ruby (~> 2.0)
     libxml-ruby (2.7.0)
@@ -36,4 +41,4 @@ DEPENDENCIES
   cinch
   cinch-identify
   cinch-quotes
-  cinch-weatherman
+  cinch-weatherman!

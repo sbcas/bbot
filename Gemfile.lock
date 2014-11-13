@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/scassiba/cinch-stocks.git
+  revision: ec60bc6f7cefd004cb63df80674b52c18778db59
+  specs:
+    cinch-stocks (0.1.3)
+      cinch (~> 2)
+      cinch-cooldown (~> 1.1, >= 1.1.1)
+      stock_quote (~> 1.1, >= 1.1.1)
+      time-lord (~> 1.0, >= 1.0.1)
+
+GIT
   remote: git://github.com/scassiba/cinch-weatherman.git
   revision: 1423f2e8bd52da8b125d5d64984781d6cb2d1327
   specs:
@@ -21,12 +31,16 @@ GEM
       cinch (~> 2.0)
     happymapper (0.4.1)
       libxml-ruby (~> 2.0)
+    json (1.8.1)
     libxml-ruby (2.7.0)
     mime-types (2.4.3)
     netrc (0.8.0)
     rest-client (1.7.2)
       mime-types (>= 1.16, < 3.0)
       netrc (~> 0.7)
+    stock_quote (1.2.0)
+      json
+      rest-client (~> 1.6)
     temperature (1.2)
     time-lord (1.0.1)
     weather-underground (1.1.1)
@@ -41,4 +55,5 @@ DEPENDENCIES
   cinch
   cinch-identify
   cinch-quotes
+  cinch-stocks!
   cinch-weatherman!

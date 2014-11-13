@@ -10,4 +10,4 @@ plugins:
   - Weatherman
   - Quotes
   - Identify
-    Stocks
+  - Stocks

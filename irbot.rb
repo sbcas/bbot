@@ -8,6 +8,7 @@ require 'cinch'
 
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
+require 'cinch-stocks'
 require 'cinch-weatherman'
 
 conf = YAML::load(File.open('config/irbot.yml'))

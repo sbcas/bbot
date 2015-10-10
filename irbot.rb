@@ -6,8 +6,8 @@ require 'yaml'
 
 require 'cinch'
 
-#require 'cinch-stocks'
-#require 'cinch-weatherman'
+require 'cinch/plugins/stocks'
+require 'cinch/plugins/weatherman'
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
 

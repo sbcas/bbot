@@ -7,11 +7,7 @@ class WolframAlpha
 
   KEY = ENV['WOLFRAM_ALPHA_APPID_KEY']
 
-  def usage
-    '.wa <query> - Query Wolfram|Alpha about something'
-  end
-
-  match /wa (.+)/, method: :wolfram_alpha, strip_colors: true
+  match(/(?:wa|wolfram) (.+)/, method: :wolfram_alpha, strip_colors: true)
 
   def wolfram_alpha(m, query)
     if KEY

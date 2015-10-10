@@ -1,0 +1,16 @@
+---
+servers:
+  irc.jaundies.com:
+    nick: 'irbot'
+    auth:
+      type: 'nickserv'
+      password: 'example'
+    prefix: '^.'
+    admins:
+      - 's'
+    ssl: true
+    port: 7001
+    channels:
+      - '#molson'
+      - '#ruby'
+    disabled_plugins: []

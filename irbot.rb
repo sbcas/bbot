@@ -11,6 +11,10 @@ require 'cinch/plugins/identify'
 require 'cinch-stocks'
 require 'cinch-weatherman'
 
+Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
+    require plugin
+end
+
 conf = YAML::load(File.open('config/irbot.yml'))
 
 bot = Cinch::Bot.new do

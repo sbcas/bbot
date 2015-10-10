@@ -11,13 +11,8 @@ require 'cinch/plugins/weatherman'
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
 
-Dir[File.dirname(__FILE__) + '/extensions/**/*.rb'].each do |extension|
-    require extension
-end
-
-Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
-    require plugin
-end
+require_relative 'extensions/'
+require_relative 'plugins/'
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
@@ -73,7 +68,7 @@ config['servers'].each do |server_name, server_info|
         conf.port = server_info['port'] or 6667
         conf.ssl.use = server_info['ssl'] or false
         conf.plugins.prefix = /^./
-        conf.plugins.plugins = @all_plugins.dup
+#        conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins = [Cinch::Plugins::Identify,
                                 Cinch::Plugins::Quotes,
                                 Cinch::Plugins::Weatherman,

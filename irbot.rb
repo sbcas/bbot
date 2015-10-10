@@ -74,7 +74,11 @@ config['servers'].each do |server_name, server_info|
         conf.ssl.use = server_info['ssl'] or false
         conf.plugins.prefix = /^./
         conf.plugins.plugins = @all_plugins.dup
-        conf.plugins.plugins << Cinch::Plugins::Identify
+        conf.plugins.plugins = [Cinch::Plugins::Identify,
+                                Cinch::Plugins::Quotes,
+                                Cinch::Plugins::Weatherman,
+                                Cinch::Plugins::Stocks,
+                                Cinch::Plugins::WolframAlpha];
         conf.plugins.options[Cinch::Plugins::Quotes] = {
           :quotes_file => './config/quotes.yml'
         }

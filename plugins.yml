@@ -1,3 +1,7 @@
 ---
 plugins:
   - WolframAlpha
+  - Identify
+  - Weatherman
+  - Stocks
+  - Quotes

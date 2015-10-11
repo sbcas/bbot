@@ -2,7 +2,9 @@
 
 require 'wolfram'
 
-class WolframAlpha
+require_relative 'irbot_plugin'
+
+class WolframAlpha < IrbotPlugin
   include Cinch::Plugin
 
   KEY = ENV['WOLFRAM_ALPHA_APPID_KEY']

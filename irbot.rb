@@ -1,18 +1,18 @@
 # -*- coding: utf-8 -*-
-require 'rubygems'
-require 'bundler/setup'
-
 require 'yaml'
 
 require 'cinch'
 
-require 'cinch/plugins/stocks'
-require 'cinch/plugins/weatherman'
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
 
-require_relative 'extensions/'
-require_relative 'plugins/'
+Dir[File.dirname(__FILE__) + '/extensions/**.rb'].each do |extension|
+    require extension
+end
+
+Dir[File.dirname(__FILE__) + '/plugins/**.rb'].each do |plugin|
+    require plugin
+end
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
@@ -70,10 +70,7 @@ config['servers'].each do |server_name, server_info|
         conf.plugins.prefix = /^./
 #        conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins = [Cinch::Plugins::Identify,
-                                Cinch::Plugins::Quotes,
-                                Cinch::Plugins::Weatherman,
-                                Cinch::Plugins::Stocks,
-                                Cinch::Plugins::WolframAlpha];
+                                Cinch::Plugins::Quotes];
         conf.plugins.options[Cinch::Plugins::Quotes] = {
           :quotes_file => './config/quotes.yml'
         }

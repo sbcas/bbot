@@ -1,22 +1,25 @@
 # Weather from da underground, yo
 
+require 'cinch/cooldown'
 require 'wunderground'
+require 'time-lord'
 
-require_relative 'irbot_plugin'
+require_relative 'irbot_plugin.rb'
 
 class Weather < IrbotPlugin
   include Cinch::Plugin
 
+  enforce_cooldown
+
   KEY = ENV['WUNDERGROUND_API_KEY']
 
   def match?(cmd)
-    cmd =~ /^(.)?(weather)|(^w)$/
+    cmd =~ /^(.)?(^w)|(weather)$/
   end
 
-  match(/w (.+)/, method: :weather, strip_colors: true)
-  match(/weather (.+)/, method: :weather, strip_colors: true)
+  match(/(?:w) (.+)/, method: :weather, strip_colors: true)
 
-  def weather(m, location)
+  def weather(location)
     if KEY
       wu = Wunderground.new(KEY)
       hash wu.conditions_for(location)

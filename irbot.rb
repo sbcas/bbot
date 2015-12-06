@@ -6,12 +6,12 @@ require 'cinch'
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
 
-Dir[File.dirname(__FILE__) + '/extensions/**.rb'].each do |extension|
-    require extension
+Dir[File.dirname(__FILE__) + '/extensions/**/*.rb'].each do |extension|
+  require extension
 end
 
-Dir[File.dirname(__FILE__) + '/plugins/**.rb'].each do |plugin|
-    require plugin
+Dir[File.dirname(__FILE__) + '/plugins/**/*.rb'].each do |plugin|
+  require plugin
 end
 
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
@@ -67,12 +67,12 @@ config['servers'].each do |server_name, server_info|
         conf.channels = server_info['channels']
         conf.port = server_info['port'] or 6667
         conf.ssl.use = server_info['ssl'] or false
-        conf.plugins.prefix = /^./
-#        conf.plugins.plugins = @all_plugins.dup
-        conf.plugins.plugins = [Cinch::Plugins::Identify,
-                                Cinch::Plugins::Quotes];
+        conf.plugins.prefix = /^\./
+        conf.plugins.plugins = @all_plugins.dup
+        conf.plugins.plugins << Cinch::Plugins::Identify
+        conf.plugins.plugins << Cinch::Plugins::Quotes
         conf.plugins.options[Cinch::Plugins::Quotes] = {
-          :quotes_file => './config/quotes.yml'
+          :quotes_file => File.expand_path(File.join(File.dirname(__FILE__), './config/quotes.yml'))
         }
 
         if server_info.key?('auth')

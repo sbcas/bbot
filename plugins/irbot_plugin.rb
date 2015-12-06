@@ -1,3 +1,4 @@
+# the class all plugins extend
 class IrbotPlugin
   def usage
     ''

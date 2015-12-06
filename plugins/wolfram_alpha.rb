@@ -2,7 +2,7 @@
 
 require 'wolfram'
 
-require_relative 'irbot_plugin'
+require_relative 'irbot_plugin.rb'
 
 class WolframAlpha < IrbotPlugin
   include Cinch::Plugin

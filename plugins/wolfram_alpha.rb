@@ -21,6 +21,7 @@ class WolframAlpha < IrbotPlugin
       else
         m.reply "Wolfram|Alpha has nothing for #{query}", true
       end
+    else
       m.reply 'Internal error (missing API key)'
     end
   end

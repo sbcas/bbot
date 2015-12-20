@@ -5,6 +5,7 @@ require 'cinch'
 
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
+require 'marky_markov'
 
 Dir[File.dirname(__FILE__) + '/extensions/**/*.rb'].each do |extension|
   require extension
@@ -17,6 +18,8 @@ end
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
 plugins_file = File.expand_path(File.join(File.dirname(__FILE__), 'plugins.yml'))
+brain = File.expand_path(File.join(File.dirname(__FILE__), 'brain'))
+markov = MarkyMarkov::Dictionary.new(brain)
 server_threads = []
 
 if File.file?(config_file) && File.file?(version_file) && File.file?(plugins_file)
@@ -88,6 +91,21 @@ config['servers'].each do |server_name, server_info|
           end
         end
       end
+
+      # learn all the things
+      on :message, /(.*)/ do |m, message|
+        if rand(5) == 0
+          markov.save_dictionary!
+        end
+
+        # all the things.
+        markov.parse_string message
+      end
+
+      on :message, /irbot/ do |m, message|
+        m.reply markov.generate_n_sentences 1
+      end
+
     end.start
   end
 end

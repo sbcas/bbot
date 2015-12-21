@@ -102,8 +102,10 @@ config['servers'].each do |server_name, server_info|
         markov.parse_string message
       end
 
-      on :message, /irbot/ do |m, message|
-        m.reply markov.generate_n_sentences 1
+      on :message, /(.*)/ do |m, message|
+        if rand(10) == 0
+          m.reply markov.generate_n_sentences 1
+        end
       end
 
     end.start

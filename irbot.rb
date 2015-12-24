@@ -94,7 +94,7 @@ config['servers'].each do |server_name, server_info|
 
       # learn all the things
       on :message, /(.*)/ do |m, message|
-        if rand(5) == 0
+        if rand(20) == 0
           markov.save_dictionary!
         end
 
@@ -107,7 +107,7 @@ config['servers'].each do |server_name, server_info|
       end
 
       on :message, /(.*)/ do |m, message|
-        if rand(10) == 0
+        if rand(20) == 0
           m.reply markov.generate_n_sentences 1
         end
       end

@@ -2,3 +2,4 @@
 plugins:
   - WolframAlpha
   - Weather
+  - YouTubeSearch

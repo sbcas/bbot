@@ -3,3 +3,4 @@ plugins:
   - WolframAlpha
   - Weather
   - YouTubeSearch
+  - GoogleSearch

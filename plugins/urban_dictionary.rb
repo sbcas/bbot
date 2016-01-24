@@ -27,7 +27,7 @@ class UrbanDictionary < IrbotPlugin
       if !hash['list'].nil?
         list = hash['list'].first
         definition = list['definition'][0..255].gsub(/[\r\n]/, '')
-        link = list['permalinl']
+        link = list['permalink']
         m.reply "#{phrase} - #{definition}... (#{link})", true
       else
         m.reply "Urban Dictionary has nothing for #{phrase}."

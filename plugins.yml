@@ -4,3 +4,4 @@ plugins:
   - Weather
   - YouTubeSearch
   - GoogleSearch
+  - UrbanDictionary

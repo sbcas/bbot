@@ -107,7 +107,7 @@ config['servers'].each do |server_name, server_info|
       end
 
       on :message, /(.*)/ do |m, message|
-        if rand(20) == 0
+        if rand(8) == 0
           m.reply markov.generate_n_sentences 1
         end
       end

@@ -3,5 +3,5 @@ plugins:
   - WolframAlpha
   - Weather
   - YouTubeSearch
-  - GoogleSearch
+  - DuckDuckGoSearch
   - UrbanDictionary

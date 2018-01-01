@@ -1,12 +1,13 @@
-irbot is a Cinch-based IRC bot for science. Science.
+b is a Cinch-based IRC bot for science. Science.
 
+It originally began as irbot, but was shortened to b in the Great Lettering.
+
+Consider this an overly complicated scratch pad.
 
 
 ...
 
 ...
 
-
-What? Were you expecting a comprehensive README? It's "self-documenting" code. ;-)
 
 Want something added or changed? File an issue or send me a PR.

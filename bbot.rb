@@ -5,7 +5,6 @@ require 'cinch'
 
 require 'cinch/plugins/quotes'
 require 'cinch/plugins/identify'
-require 'marky_markov'
 
 Dir[File.dirname(__FILE__) + '/extensions/**/*.rb'].each do |extension|
   require extension
@@ -18,8 +17,6 @@ end
 config_file = File.expand_path(File.join(File.dirname(__FILE__), 'config.yml'))
 version_file = File.expand_path(File.join(File.dirname(__FILE__), 'version.yml'))
 plugins_file = File.expand_path(File.join(File.dirname(__FILE__), 'plugins.yml'))
-brain = File.expand_path(File.join(File.dirname(__FILE__), 'brain'))
-markov = MarkyMarkov::Dictionary.new(brain)
 server_threads = []
 
 if File.file?(config_file) && File.file?(version_file) && File.file?(plugins_file)
@@ -62,14 +59,14 @@ config['servers'].each do |server_name, server_info|
       end
 
       configure do |conf|
-        conf.nick = server_info['nick'] or 'irbot'
-        conf.realname = 'The Honorable I.R. Botsford III'
-        conf.user = 'irbot'
+        conf.nick = server_info['nick'] or 'b'
+        conf.realname = 'His Lordship B. Bottingsfordshire IV'
+        conf.user = 'b'
         conf.max_messages = 1
         conf.server = server_name
         conf.channels = server_info['channels']
-        conf.port = server_info['port'] or 6667
-        conf.ssl.use = server_info['ssl'] or false
+        conf.port = server_info['port'] or 7001
+        conf.ssl.use = server_info['ssl'] or true
         conf.plugins.prefix = /^\./
         conf.plugins.plugins = @all_plugins.dup
         conf.plugins.plugins << Cinch::Plugins::Identify
@@ -91,27 +88,6 @@ config['servers'].each do |server_name, server_info|
           end
         end
       end
-
-      # learn all the things
-      on :message, /(.*)/ do |m, message|
-        if rand(20) == 0
-          markov.save_dictionary!
-        end
-
-        # all the things.
-        markov.parse_string message
-      end
-
-      on :message, /irbot/ do |m, message|
-        m.reply markov.generate_n_sentences 1
-      end
-
-      on :message, /(.*)/ do |m, message|
-        if rand(8) == 0
-          m.reply markov.generate_n_sentences 1
-        end
-      end
-
     end.start
   end
 end

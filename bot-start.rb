@@ -1,3 +1,3 @@
 require 'daemons'
 
-Daemons.run('irbot.rb')
+Daemons.run('bbot.rb')

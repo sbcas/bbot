@@ -1,7 +1,5 @@
 ---
 plugins:
-  - WolframAlpha
+  - Forecast
   - Weather
-  - YouTubeSearch
-  - DuckDuckGoSearch
-  - UrbanDictionary
+  - WolframAlpha

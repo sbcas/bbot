@@ -4,9 +4,9 @@ require 'cinch/cooldown'
 require 'wunderground'
 require 'time-lord'
 
-require_relative 'irbot_plugin.rb'
+require_relative 'bbot_plugin.rb'
 
-class Weather < IrbotPlugin
+class Weather < BbotPlugin
   include Cinch::Plugin
 
   enforce_cooldown

@@ -1,5 +1,5 @@
 # the class all plugins extend
-class IrbotPlugin
+class BbotPlugin
   def usage
     ''
   end
